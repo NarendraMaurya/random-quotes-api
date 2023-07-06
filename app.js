@@ -40,6 +40,6 @@ app.get('/favorite', async (req, res) => {
 
 app.listen(process.env.PORT||5000, async () => {
     console.log('Server started at port 5000');
-    await mongoose.connect("mongodb://127.0.0.1:27017/qouteDB",{ useNewUrlParser: true });
+    await mongoose.connect("mongodb+srv://narendra-maurya:test1234@cluster0.2p53s5l.mongodb.net/quoteDB",{ useNewUrlParser: true });
     console.log('Database connected!!');
 });
