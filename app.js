@@ -10,7 +10,6 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/qouteDB",{ useNewUrlParser: true });
 const quote = {
     content: String,
     author: String
@@ -39,6 +38,8 @@ app.get('/favorite', async (req, res) => {
     res.send(foundQoute);
 });
 
-app.listen('5000', () => {
+app.listen(process.env.PORT||5000, async () => {
     console.log('Server started at port 5000');
+    await mongoose.connect("mongodb://127.0.0.1:27017/qouteDB",{ useNewUrlParser: true });
+    console.log('Database connected!!');
 });
